@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARTEDUR – Especialistas en construcción en seco, Durlock, cielorraso, tabiques, pintura interior y exterior, reformas y venta de materiales en Buenos Aires. Pedí tu presupuesto gratis." />
+  <meta name="keywords" content="Durlock, Knauf, construcción en seco, cielorraso, cielorraso desmontable, cielorraso PVC, tabiques, revestimiento, pintura, reformas, construcción, Buenos Aires, CABA" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="ARTEDUR | Construcción en Seco y Reformas en Buenos Aires" />
+  <meta property="og:description" content="Especialistas en Durlock, cielorrasos, tabiques, pintura y reformas. Más de 25 años de experiencia en CABA y GBA." />
+  <meta property="og:type" content="website" />
+  <title>ARTEDUR | Construcción en Seco, Durlock y Reformas – Buenos Aires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    /* === BRAND COLORS === */
+    :root {
+      --Y: #F5D000;
+      --YD: #D4B200;
+      --B: #0A0A0A;
+      --G1: #141414;
+      --G2: #1E1E1E;
+      --G3: #2B2B2B;
+      --G4: #3D3D3D;
+      --TX: #EDEDED;
+      --MT: #888888;
+      --WH: #FFFFFF;
+      --FH: 'Bebas Neue', sans-serif;
+      --FB: 'DM Sans', sans-serif;
+      --NH: 68px;
+      --EZ: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--FB); font-size: 16px; line-height: 1.7; background: var(--B); color: var(--TX); overflow-x: hidden; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    strong { font-weight: 500; }
+    /* === LAYOUT === */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .sec { padding: 96px 0; }
+    /* === TYPE === */
+    .lbl { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--Y); margin-bottom: 14px; }
+    .ttl { font-family: var(--FH); font-size: clamp(42px, 5.5vw, 72px); line-height: 0.95; letter-spacing: 1px; color: var(--WH); }
+    .bar { width: 44px; height: 3px; background: var(--Y); margin: 20px 0 28px; }
+    .bar.cx { margin-left: auto; margin-right: auto; }
+    .muted { font-size: 15px; font-weight: 400; color: var(--MT); line-height: 1.8; }
+    /* === BTNS === */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; font-family: var(--FB); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border: none; transition: var(--EZ); text-decoration: none; }
+    .btn-y { background: var(--Y); color: var(--B); }
+    .btn-y:hover { background: var(--YD); transform: translateY(-2px); }
+    .btn-o { background: transparent; color: var(--Y); border: 1.5px solid var(--Y); }
+    .btn-o:hover { background: var(--Y); color: var(--B); }
+    /* === HEADER === */
+    #hd { position: fixed; top: 0; left: 0; right: 0; height: var(--NH); z-index: 900; display: flex; align-items: center; background: transparent; border-bottom: 1px solid transparent; transition: background 0.35s, border-color 0.35s; }
+    #hd.stk { background: rgba(8,8,8,0.96); border-bottom-color: rgba(245,208,0,0.12); backdrop-filter: blur(10px); }
+    .nv { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .logo { font-family: var(--FH); font-size: 29px; letter-spacing: 5px; color: var(--WH); line-height: 1; }
+    .logo em { color: var(--Y); font-style: normal; }
+    .logo small { display: block; font-family: var(--FB); font-size: 9px; letter-spacing: 4px; font-weight: 400; color: var(--Y); margin-top: 2px; }
+    .nl { display: flex; gap: 30px; }
+    .nl a { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--MT); transition: color var(--EZ); position: relative; }
+    .nl a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--Y); transition: width var(--EZ); }
+    .nl a:hover, .nl a.on { color: var(--Y); }
+    .nl a:hover::after, .nl a.on::after { width: 100%; }
+    /* burger */
+    .brg { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .brg span { display: block; width: 22px; height: 2px; background: var(--WH); transition: var(--EZ); }
+    .brg.op span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .brg.op span:nth-child(2) { opacity: 0; }
+    .brg.op span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* mobile drawer */
+    .mn { position: fixed; inset: 0; background: rgba(8,8,8,0.98); z-index: 800; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .mn.op { opacity: 1; pointer-events: all; }
+    .mn a { font-family: var(--FH); font-size: 44px; letter-spacing: 3px; color: var(--WH); transition: color var(--EZ); }
+    .mn a:hover { color: var(--Y); }
+    /* === HERO === */
+    #inicio { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: var(--NH); }
+    .hbg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat; }
+    .hov { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(8,8,8,0.93) 48%, rgba(8,8,8,0.5) 100%); }
+    .hct { position: relative; z-index: 2; max-width: 700px; }
+    .hpill { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(245,208,0,0.35); padding: 7px 16px; margin-bottom: 28px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--Y); }
+    .hpill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--Y); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0.2; } }
+    .hh1 { font-family: var(--FH); font-size: clamp(58px, 9vw, 116px); line-height: 0.92; letter-spacing: 1px; color: var(--WH); margin-bottom: 22px; }
+    .hh1 span { color: var(--Y); }
+    .hsub { font-size: 17px; font-weight: 300; color: rgba(237,237,237,0.7); max-width: 520px; margin-bottom: 36px; line-height: 1.7; }
+    .hbts { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hsts { position: absolute; bottom: 0; right: 0; display: flex; z-index: 2; }
+    .st { padding: 26px 34px; text-align: center; border-left: 1px solid rgba(245,208,0,0.15); background: rgba(8,8,8,0.6); backdrop-filter: blur(6px); }
+    .stn { font-family: var(--FH); font-size: 48px; line-height: 1; color: var(--Y); }
+    .stl { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--MT); margin-top: 5px; }
+    .shr { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .shr span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--MT); }
+    .sl { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--Y), transparent); animation: sd 1.8s ease infinite; }
+    @keyframes sd { 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 51%{ transform:scaleY(1); transform-origin:bottom; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
+    /* === STRIP === */
+    .strip { background: var(--Y); overflow: hidden; }
+    .str { display: flex; align-items: stretch; }
+    .si { display: flex; align-items: center; gap: 12px; padding: 18px 36px; border-right: 1px solid rgba(0,0,0,0.12); white-space: nowrap; flex-shrink: 0; }
+    .sdot { width: 8px; height: 8px; border-radius: 50%; background: var(--B); flex-shrink: 0; }
+    .si span { font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--B); }
+    /* === SECTION HEADER === */
+    .sh { margin-bottom: 56px; }
+    .sh.cx { text-align: center; }
+    .sh .muted { max-width: 540px; }
+    .sh.cx .muted { margin-left: auto; margin-right: auto; }
+    /* === SECO === */
+    #construccion-seco { background: var(--B); }
+    .scards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--G3); margin-bottom: 2px; }
+    .sc { background: var(--G1); padding: 44px 36px; position: relative; overflow: hidden; transition: background var(--EZ); }
+    .sc:hover { background: var(--G2); }
+    .scn { position: absolute; top: 16px; right: 20px; font-family: var(--FH); font-size: 72px; line-height: 1; color: rgba(245,208,0,0.06); pointer-events: none; }
+    .sci { width: 44px; height: 44px; border: 1.5px solid rgba(245,208,0,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .sci svg { width: 20px; height: 20px; fill: var(--Y); }
+    .sc h3 { font-family: var(--FH); font-size: 26px; letter-spacing: 1px; color: var(--WH); margin-bottom: 10px; }
+    .sc p { font-size: 14px; color: var(--MT); line-height: 1.75; }
+    .sct { display: inline-block; margin-top: 18px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--Y); border: 1px solid rgba(245,208,0,0.25); padding: 5px 12px; }
+    .sfeat { display: grid; grid-template-columns: 1fr 1fr; background: var(--G3); gap: 2px; }
+    .sfi { height: 420px; overflow: hidden; }
+    .sfi img { transition: transform 0.6s ease; }
+    .sfi:hover img { transform: scale(1.04); }
+    .sft { background: var(--G1); padding: 52px 44px; display: flex; flex-direction: column; justify-content: center; }
+    .sft h3 { font-family: var(--FH); font-size: 36px; color: var(--WH); margin-bottom: 14px; line-height: 1; }
+    .sft p { font-size: 15px; color: var(--MT); line-height: 1.8; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .pill { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--Y); border: 1px solid rgba(245,208,0,0.25); padding: 5px 13px; }
+    /* === PISOS === */
+    #pisos { background: var(--G1); }
+    .piw { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pig { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 3px; }
+    .pgm { overflow: hidden; }
+    .pgm:first-child { grid-row: 1 / -1; }
+    .pgm img { transition: transform 0.55s ease; }
+    .pgm:hover img { transform: scale(1.06); }
+    .pil { display: flex; flex-direction: column; margin-top: 28px; }
+    .pit { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(245,208,0,0.07); }
+    .pit:first-child { padding-top: 0; }
+    .pit:last-child { border-bottom: none; }
+    .pdot { width: 3px; background: var(--Y); flex-shrink: 0; margin-top: 4px; border-radius: 2px; }
+    .pnm { font-size: 15px; font-weight: 500; color: var(--WH); margin-bottom: 3px; }
+    .pds { font-size: 13px; color: var(--MT); line-height: 1.6; }
+    /* === PINTURA === */
+    #pintura { background: var(--B); }
+    .pgal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 3px; }
+    .pg { overflow: hidden; position: relative; }
+    .pg img { transition: transform 0.55s ease; aspect-ratio: 4/3; }
+    .pg.tl img { aspect-ratio: 3/4; }
+    .pg:hover img { transform: scale(1.06); }
+    .pgl { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 14px; background: linear-gradient(to top, rgba(8,8,8,0.85), transparent); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--Y); opacity: 0; transition: opacity var(--EZ); }
+    .pg:hover .pgl { opacity: 1; }
+    .pbot { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .phl { background: var(--Y); padding: 44px; }
+    .phl h3 { font-family: var(--FH); font-size: 28px; letter-spacing: 1px; color: var(--B); margin-bottom: 24px; line-height: 1.1; }
+    .phl ul { display: flex; flex-direction: column; gap: 10px; }
+    .phl li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 500; color: var(--B); line-height: 1.4; }
+    .phl li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--B); flex-shrink: 0; margin-top: 5px; }
+    .ppr { background: var(--G1); padding: 44px; border-left: 3px solid var(--Y); display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
+    .ppr p { font-size: 15px; color: var(--MT); line-height: 1.8; }
+    /* === MATERIALES === */
+    #materiales { background: var(--G1); }
+    .mgr { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 3px; }
+    .mc { background: var(--G2); cursor: pointer; overflow: hidden; transition: background var(--EZ); }
+    .mc:hover { background: var(--G3); }
+    .mci { aspect-ratio: 1; overflow: hidden; position: relative; }
+    .mci img { transition: transform 0.5s ease; }
+    .mc:hover .mci img { transform: scale(1.06); }
+    .mov { position: absolute; inset: 0; background: rgba(245,208,0,0.12); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--EZ); }
+    .mc:hover .mov { opacity: 1; }
+    .mov span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--Y); border: 1px solid var(--Y); padding: 7px 16px; }
+    .mnm { padding: 14px 18px; font-size: 13px; font-weight: 500; color: var(--WH); letter-spacing: 0.3px; border-top: 1px solid rgba(245,208,0,0.08); }
+    /* === TRABAJOS === */
+    #trabajos { background: var(--B); }
+    .msn { columns: 3; column-gap: 3px; }
+    .mi { break-inside: avoid; margin-bottom: 3px; overflow: hidden; position: relative; }
+    .mi img { transition: transform 0.55s ease; display: block; }
+    .mi:hover img { transform: scale(1.05); }
+    .mlb { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 16px 14px; background: linear-gradient(to top, rgba(8,8,8,0.85), transparent); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--Y); opacity: 0; transition: opacity var(--EZ); }
+    .mi:hover .mlb { opacity: 1; }
+    /* === CONTACTO === */
+    #contacto { background: var(--G1); }
+    .cgr { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .cf { display: flex; flex-direction: column; gap: 18px; }
+    .cfg { display: flex; flex-direction: column; gap: 7px; }
+    .cfg label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--MT); }
+    .cfg input, .cfg textarea { background: var(--G2); border: 1px solid rgba(245,208,0,0.12); color: var(--WH); padding: 13px 16px; font-family: var(--FB); font-size: 15px; outline: none; border-radius: 0; transition: border-color var(--EZ); width: 100%; }
+    .cfg input:focus, .cfg textarea:focus { border-color: rgba(245,208,0,0.5); }
+    .cfg textarea { min-height: 130px; resize: vertical; }
+    #fok { font-size: 13px; color: var(--Y); display: none; margin-top: 4px; }
+    .ci { display: flex; flex-direction: column; gap: 28px; }
+    .cib { border-left: 2px solid rgba(245,208,0,0.25); padding-left: 18px; }
+    .cib h4 { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--Y); margin-bottom: 8px; }
+    .cib p, .cib a { font-size: 15px; color: var(--MT); line-height: 1.75; display: block; transition: color var(--EZ); }
+    .cib a:hover { color: var(--Y); }
+    .mapb { height: 190px; background: var(--G2); border: 1px solid rgba(245,208,0,0.08); overflow: hidden; position: relative; }
+    .mapb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    /* === FOOTER === */
+    footer { background: var(--B); border-top: 1px solid rgba(245,208,0,0.08); padding: 56px 0 28px; }
+    .fg { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .flo { font-family: var(--FH); font-size: 32px; letter-spacing: 5px; color: var(--WH); margin-bottom: 12px; line-height: 1; }
+    .flo em { color: var(--Y); font-style: normal; }
+    .flo small { display: block; font-family: var(--FB); font-size: 9px; letter-spacing: 4px; color: var(--Y); margin-top: 3px; }
+    .ftag { font-size: 14px; color: var(--MT); line-height: 1.7; max-width: 260px; }
+    .fc h5 { font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--Y); margin-bottom: 18px; }
+    .fc ul { display: flex; flex-direction: column; gap: 9px; }
+    .fc a { font-size: 14px; color: var(--MT); transition: color var(--EZ); }
+    .fc a:hover { color: var(--Y); }
+    .fc span { font-size: 14px; color: var(--MT); }
+    .fbot { border-top: 1px solid rgba(245,208,0,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .fbot p { font-size: 12px; color: var(--MT); }
+    /* === WHATSAPP === */
+    .wa { position: fixed; bottom: 28px; right: 28px; z-index: 890; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: transform var(--EZ), box-shadow var(--EZ); }
+    .wa:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+    .wa svg { width: 28px; height: 28px; fill: #fff; }
+    .war { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(37,211,102,0.45); animation: rng 2.2s ease-out infinite; }
+    @keyframes rng { 0%{ transform:scale(1); opacity:0.9; } 100%{ transform:scale(1.5); opacity:0; } }
+    /* === FADE-UP === */
+    .fu { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fu.in { opacity: 1; transform: translateY(0); }
+    .fu:nth-child(2) { transition-delay: 0.08s; }
+    .fu:nth-child(3) { transition-delay: 0.16s; }
+    .fu:nth-child(4) { transition-delay: 0.24s; }
+    .fu:nth-child(5) { transition-delay: 0.32s; }
+    .fu:nth-child(6) { transition-delay: 0.40s; }
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .sfeat { grid-template-columns: 1fr; }
+      .sfi { height: 300px; }
+      .cgr { grid-template-columns: 1fr; }
+      .fg { grid-template-columns: 1fr 1fr; }
+      .msn { columns: 2; }
+    }
+    @media (max-width: 768px) {
+      :root { --NH: 60px; }
+      .sec { padding: 68px 0; }
+      .nl, .nav-cta { display: none; }
+      .brg { display: flex; }
+      .hsts { display: none; }
+      .scards { grid-template-columns: 1fr; }
+      .sfeat { grid-template-columns: 1fr; }
+      .piw { grid-template-columns: 1fr; }
+      .pig { grid-template-rows: 160px 160px; }
+      .pgal { grid-template-columns: repeat(2, 1fr); }
+      .pbot { grid-template-columns: 1fr; }
+      .mgr { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .fg { grid-template-columns: 1fr; }
+      .fbot { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .pgal { grid-template-columns: 1fr; }
+      .msn { columns: 1; }
+      .mgr { grid-template-columns: repeat(2, 1fr); }
+      .hh1 { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hd" role="banner">
+  <div class="wrap nv">
+    <a href="#inicio" class="logo" aria-label="ARTEDUR Inicio">ARTE<em>DUR</em><small>DURLOCK</small></a>
+    <nav class="nl" role="navigation" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#construccion-seco">Construcción en Seco</a>
+      <a href="#pisos">Pisos</a>
+      <a href="#pintura">Pintura</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contacto" class="btn btn-y" style="padding:10px 20px;font-size:11px;">Presupuesto</a>
+    </div>
+    <button class="brg" id="brg" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mn" id="mn" aria-label="Menú móvil">
+  <a href="#inicio" class="mnl">Inicio</a>
+  <a href="#construccion-seco" class="mnl">Construcción en Seco</a>
+  <a href="#pisos" class="mnl">Pisos</a>
+  <a href="#pintura" class="mnl">Pintura</a>
+  <a href="#materiales" class="mnl">Materiales</a>
+  <a href="#trabajos" class="mnl">Trabajos</a>
+  <a href="#contacto" class="mnl">Contacto</a>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" aria-label="Inicio">
+  <div class="hbg" role="img" aria-label="Obra de construcción en seco con Durlock en Buenos Aires"></div>
+  <div class="hov"></div>
+  <div class="wrap hct">
+    <div class="hpill">Buenos Aires &middot; CABA &amp; GBA</div>
+    <h1 class="hh1">Tu hogar,<br><span>nuestra obra.</span></h1>
+    <p class="hsub">Especialistas en <strong style="color:var(--WH)">construcción en seco</strong>, Durlock, cielorrasos, tabiques, pintura y reformas. Más de 25 años transformando espacios en Buenos Aires.</p>
+    <div class="hbts">
+      <a href="#contacto" class="btn btn-y">Solicitar presupuesto</a>
+      <a href="#trabajos" class="btn btn-o">Ver trabajos realizados</a>
+    </div>
+  </div>
+  <div class="hsts" aria-hidden="true">
+    <div class="st"><div class="stn">+25</div><div class="stl">Años de experiencia</div></div>
+    <div class="st"><div class="stn">+500</div><div class="stl">Obras realizadas</div></div>
+    <div class="st"><div class="stn">100%</div><div class="stl">Garantía de calidad</div></div>
+  </div>
+  <div class="shr" aria-hidden="true">
+    <div class="sl"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="str">
+    <div class="si"><div class="sdot"></div><span>Durlock &amp; Knauf certificados</span></div>
+    <div class="si"><div class="sdot"></div><span>Cielorrasos desmontables y PVC</span></div>
+    <div class="si"><div class="sdot"></div><span>Pintura interior y exterior</span></div>
+    <div class="si"><div class="sdot"></div><span>Reformas y construcción húmeda</span></div>
+    <div class="si"><div class="sdot"></div><span>Venta de materiales</span></div>
+    <div class="si"><div class="sdot"></div><span>Presupuesto sin cargo</span></div>
+  </div>
+</div>
+
+<!-- CONSTRUCCIÓN EN SECO -->
+<section id="construccion-seco" class="sec" aria-labelledby="h-seco">
+  <div class="wrap">
+    <div class="sh fu">
+      <div class="lbl">Nuestros servicios principales</div>
+      <h2 class="ttl" id="h-seco">Construcción<br>en Seco</h2>
+      <div class="bar"></div>
+      <p class="muted">Trabajamos con placas <strong style="color:var(--WH)">Durlock</strong> y <strong style="color:var(--WH)">Knauf</strong> para resolver cualquier proyecto de construcción en seco: desde tabiques divisorios hasta cielorrasos complejos. Rapidez, limpieza y acabado perfecto.</p>
+    </div>
+    <div class="scards">
+      <div class="sc fu">
+        <div class="scn">01</div>
+        <div class="sci"><svg viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm0 8h18v2H3v-2zm0 8h18v2H3v-2z"/></svg></div>
+        <h3>Tabiques Durlock</h3>
+        <p>Instalación de tabiques con placas Durlock y Knauf. Dividí ambientes, mejorá la acústica y la aislación térmica sin obra pesada ni suciedad.</p>
+        <span class="sct">Durlock &middot; Knauf &middot; Tabiques</span>
+      </div>
+      <div class="sc fu">
+        <div class="scn">02</div>
+        <div class="sci"><svg viewBox="0 0 24 24"><path d="M2 5h20v2H2V5zm2 4h16v2H4V9zm-2 4h20v2H2v-2z"/></svg></div>
+        <h3>Cielorraso Desmontable</h3>
+        <p>Instalamos cielorraso desmontable con perfilería de aluminio y placas de yeso o vinílicas. Ideal para oficinas y comercios con acceso fácil a instalaciones.</p>
+        <span class="sct">Cielorraso &middot; Desmontable</span>
+      </div>
+      <div class="sc fu">
+        <div class="scn">03</div>
+        <div class="sci"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1"/></svg></div>
+        <h3>Cielorraso de Yeso</h3>
+        <p>Cielorrasos de yeso aplicado directo o con estructura Durlock. Terminaciones lisas, con cornisas y molduras. La solución clásica y elegante para tu hogar.</p>
+        <span class="sct">Cielorraso &middot; Yeso &middot; Durlock</span>
+      </div>
+      <div class="sc fu">
+        <div class="scn">04</div>
+        <div class="sci"><svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4zm-2 4h20v2H2V8zm2 4h16v2H4v-2zm-2 4h20v2H2v-2z"/></svg></div>
+        <h3>Cielorraso PVC</h3>
+        <p>Instalación de cielorraso PVC para cocinas, baños y lavaderos. Material resistente a la humedad, fácil de limpiar, en distintos diseños y colores.</p>
+        <span class="sct">Cielorraso PVC &middot; Baños</span>
+      </div>
+    </div>
+    <div class="sfeat fu">
+      <div class="sfi">
+        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&auto=format&fit=crop&q=80" alt="Instalación de revestimiento Durlock y tabiques en construcción en seco en Buenos Aires" />
+      </div>
+      <div class="sft">
+        <div class="lbl">Revestimientos y terminaciones</div>
+        <h3>Revestimiento de Alta Calidad</h3>
+        <div class="bar"></div>
+        <p>Nuestro equipo realiza revestimientos interiores con placas de yeso, fibrocemento y materiales especiales. Cada trabajo se ejecuta con los estándares que exigen las marcas <strong style="color:var(--WH)">Durlock</strong> y <strong style="color:var(--WH)">Knauf</strong>. Terminaciones prolijas, durables y estéticamente superiores.</p>
+        <div class="pills">
+          <span class="pill">Durlock</span>
+          <span class="pill">Knauf</span>
+          <span class="pill">Cielorraso</span>
+          <span class="pill">Tabiques</span>
+          <span class="pill">Revestimiento</span>
+          <span class="pill">Construcción en seco</span>
+        </div>
+        <div style="margin-top:28px"><a href="#contacto" class="btn btn-y">Solicitar presupuesto</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PISOS -->
+<section id="pisos" class="sec" aria-labelledby="h-pisos">
+  <div class="wrap">
+    <div class="piw">
+      <div class="pig fu">
+        <div class="pgm"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Instalación de pisos cerámicos y porcelanato en Buenos Aires" /></div>
+        <div class="pgm"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=400&auto=format&fit=crop&q=80" alt="Piso vinílico instalado en interior de vivienda Buenos Aires" /></div>
+        <div class="pgm"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&auto=format&fit=crop&q=80" alt="Piso de madera en reforma de hogar CABA" /></div>
+      </div>
+      <div class="fu">
+        <div class="lbl">Pisos</div>
+        <h2 class="ttl" id="h-pisos">Pisos para<br>cada espacio</h2>
+        <div class="bar"></div>
+        <p class="muted">Instalamos y colocamos pisos de distintos materiales para ambientes residenciales y comerciales. Trabajamos con precisión para garantizar un resultado nivelado, prolijo y duradero.</p>
+        <div class="pil">
+          <div class="pit">
+            <div class="pdot"></div>
+            <div><div class="pnm">Cerámicos y Porcelanato</div><div class="pds">Colocación con junta perfecta, corte a medida y terminación impecable.</div></div>
+          </div>
+          <div class="pit">
+            <div class="pdot"></div>
+            <div><div class="pnm">Pisos Vinílicos y Flotantes</div><div class="pds">Rápida instalación sin obra. Ideal para reformas con mínima rotura.</div></div>
+          </div>
+          <div class="pit">
+            <div class="pdot"></div>
+            <div><div class="pnm">Pisos de Madera y Parquet</div><div class="pds">Instalación, lijado y tratamiento de pisos de madera maciza y laminados.</div></div>
+          </div>
+          <div class="pit">
+            <div class="pdot"></div>
+            <div><div class="pnm">Microcemento</div><div class="pds">Aplicación en pisos y paredes para un look moderno, continuo y resistente.</div></div>
+          </div>
+        </div>
+        <div style="margin-top:28px"><a href="#contacto" class="btn btn-y">Consultar sobre pisos</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PINTURA -->
+<section id="pintura" class="sec" aria-labelledby="h-pintura">
+  <div class="wrap">
+    <div class="sh fu">
+      <div class="lbl">Pintura profesional</div>
+      <h2 class="ttl" id="h-pintura">Pintura Interior<br>&amp; Exterior</h2>
+      <div class="bar"></div>
+      <p class="muted">Pintores profesionales con amplia experiencia para casas, edificios y frentes comerciales en toda la Ciudad de Buenos Aires y Gran Buenos Aires.</p>
+    </div>
+    <div class="pgal fu">
+      <div class="pg tl">
+        <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&auto=format&fit=crop&q=80" alt="Pintura interior de living en vivienda CABA terminación lisa" />
+        <div class="pgl">Pintura interior</div>
+      </div>
+      <div class="pg">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop&q=80" alt="Pintura de frente exterior de edificio en Buenos Aires" />
+        <div class="pgl">Frente exterior</div>
+      </div>
+      <div class="pg">
+        <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&auto=format&fit=crop&q=80" alt="Pintor profesional aplicando pintura látex en interior de hogar" />
+        <div class="pgl">Aplicación látex</div>
+      </div>
+      <div class="pg">
+        <img src="https://images.unsplash.com/photo-1615529179035-e760f6a2dcee?w=600&auto=format&fit=crop&q=80" alt="Acabado pintura blanca en habitación renovada CABA" />
+        <div class="pgl">Acabado blanco</div>
+      </div>
+      <div class="pg tl">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&auto=format&fit=crop&q=80" alt="Pintura en altura con andamio en fachada Buenos Aires" />
+        <div class="pgl">Trabajos en altura</div>
+      </div>
+      <div class="pg">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80" alt="Pintura de techo y molduras en reforma de vivienda" />
+        <div class="pgl">Techos y molduras</div>
+      </div>
+    </div>
+    <div class="pbot fu">
+      <div class="phl">
+        <h3>Nuestros trabajos de pintura incluyen:</h3>
+        <ul>
+          <li>Preparación de superficies</li>
+          <li>Acabado final yeso o enduido</li>
+          <li>Pintura general interiores y exteriores</li>
+          <li>Casas y edificios</li>
+          <li>Trabajos en altura</li>
+          <li>Andamios y silletas</li>
+          <li>Frentes, terrazas y techos</li>
+        </ul>
+      </div>
+      <div class="ppr">
+        <p>En <strong style="color:var(--WH)">ARTEDUR</strong> sabemos que una buena pintura empieza antes de aplicar el color. La preparación de superficies es clave: lijado, enduido, masillado y corrección de imperfecciones para un acabado profesional que dure en el tiempo.</p>
+        <p>Trabajamos con productos de primera línea: látex acrílicos, esmaltes e impermeabilizantes para exteriores. Nuestro equipo cuenta con andamios y silletas para trabajos en altura en edificios, frentes y terrazas con total seguridad.</p>
+        <a href="#contacto" class="btn btn-y" style="align-self:flex-start">Pedir presupuesto de pintura</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALES -->
+<section id="materiales" class="sec" aria-labelledby="h-mat">
+  <div class="wrap">
+    <div class="sh cx fu">
+      <div class="lbl">Venta mayorista y minorista</div>
+      <h2 class="ttl" id="h-mat">Venta de Materiales</h2>
+      <div class="bar cx"></div>
+      <p class="muted" style="text-align:center">Stock permanente de los principales materiales para construcción en seco. Trabajamos con las marcas líderes del mercado argentino.</p>
+    </div>
+    <div class="mgr">
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Placas Durlock" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&auto=format&fit=crop&q=80" alt="Placas Durlock para construcción en seco" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Placas Durlock</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Placas Knauf" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop&q=80" alt="Placas Knauf para tabiques y cielorraso" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Placas Knauf</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Perfiles y Montantes" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&auto=format&fit=crop&q=80" alt="Perfiles y montantes de aluminio para construcción en seco" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Perfiles y Montantes</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Pinturas y Esmaltes" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400&auto=format&fit=crop&q=80" alt="Pinturas látex y esmaltes para interior y exterior" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Pinturas y Esmaltes</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Cielorraso PVC" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop&q=80" alt="Cielorraso PVC y paneles vinílicos" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Cielorraso PVC</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Enduido y Masilla" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&auto=format&fit=crop&q=80" alt="Masilla y enduido para preparación de superficies" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Enduido y Masilla</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Cerámicos y Porcelanato" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&auto=format&fit=crop&q=80" alt="Cerámicos y porcelanatos para pisos y revestimientos" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Cerámicos y Porcelanato</div>
+      </div>
+      <div class="mc fu" onclick="location.href='#contacto'" tabindex="0" role="button" aria-label="Consultar por Impermeabilizantes" onkeydown="if(event.key==='Enter')location.href='#contacto'">
+        <div class="mci"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&auto=format&fit=crop&q=80" alt="Selladores e impermeabilizantes para frentes y terrazas" /><div class="mov"><span>Consultar</span></div></div>
+        <div class="mnm">Impermeabilizantes</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <p style="font-size:14px;color:var(--MT);margin-bottom:18px">No encontrás lo que buscás? Consultanos por cualquier material.</p>
+      <a href="#contacto" class="btn btn-y">Consultar disponibilidad</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRABAJOS -->
+<section id="trabajos" class="sec" aria-labelledby="h-trab">
+  <div class="wrap">
+    <div class="sh fu">
+      <div class="lbl">Portfolio de obras</div>
+      <h2 class="ttl" id="h-trab">Trabajos<br>Realizados</h2>
+      <div class="bar"></div>
+      <p class="muted">Más de 500 obras ejecutadas en CABA y Gran Buenos Aires. Desde pequeñas reformas hasta grandes proyectos de construcción en seco y terminaciones.</p>
+    </div>
+    <div class="msn">
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&auto=format&fit=crop&q=80" alt="Reforma completa de vivienda con tabiques Durlock y pintura en Buenos Aires" /><div class="mlb">Reforma interior &middot; Durlock</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=80" alt="Cielorraso desmontable instalado en local comercial CABA" /><div class="mlb">Cielorraso desmontable</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&auto=format&fit=crop&q=80" alt="Pintura de frente de edificio en altura con andamio en Buenos Aires" /><div class="mlb">Pintura de frente &middot; Altura</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&auto=format&fit=crop&q=80" alt="Cocina renovada con revestimiento de porcelanato y pintura" /><div class="mlb">Reforma de cocina</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80" alt="Living renovado con tabique Durlock y piso flotante" /><div class="mlb">Tabique &middot; Piso flotante</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80" alt="Baño reformado con cielorraso PVC y revestimiento cerámico" /><div class="mlb">Baño &middot; Cielorraso PVC</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&auto=format&fit=crop&q=80" alt="Dormitorio pintado con enduido y látex color en CABA" /><div class="mlb">Pintura interior</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&auto=format&fit=crop&q=80" alt="Sala de estar con cielorraso de yeso y molduras decorativas" /><div class="mlb">Cielorraso de yeso</div></div>
+      <div class="mi fu"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&auto=format&fit=crop&q=80" alt="Oficina con construcción en seco y cielorraso desmontable" /><div class="mlb">Oficina &middot; Construcción en seco</div></div>
+    </div>
+    <div style="text-align:center;margin-top:44px">
+      <a href="#contacto" class="btn btn-y">Queres un trabajo así? Consultanos</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="sh cx fu">
+      <div class="lbl">Estamos para ayudarte</div>
+      <h2 class="ttl" id="h-contact">Contacto</h2>
+      <div class="bar cx"></div>
+      <p class="muted" style="text-align:center">Contactanos para solicitar tu presupuesto sin cargo. Respondemos a la brevedad en horario comercial.</p>
+    </div>
+    <div class="cgr">
+      <div class="fu">
+        <form class="cf" id="cform" novalidate aria-label="Formulario de contacto ARTEDUR">
+          <div class="cfg">
+            <label for="inp-n">Nombre completo</label>
+            <input type="text" id="inp-n" name="nombre" placeholder="Tu nombre y apellido" autocomplete="name" required />
+          </div>
+          <div class="cfg">
+            <label for="inp-t">Teléfono</label>
+            <input type="tel" id="inp-t" name="telefono" placeholder="Ej: 1123456789" autocomplete="tel" required />
+          </div>
+          <div class="cfg">
+            <label for="inp-m">Mensaje</label>
+            <textarea id="inp-m" name="mensaje" placeholder="Describí brevemente el trabajo que necesitás..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-y">Enviar consulta</button>
+          <p id="fok">Gracias! Te contactaremos a la brevedad.</p>
+        </form>
+      </div>
+      <div class="ci fu">
+        <div class="cib">
+          <h4>Dirección</h4>
+          <p>Av. Castañares 2123 &ndash; CABA<br>Ciudad Autónoma de Buenos Aires</p>
+        </div>
+        <div class="cib">
+          <h4>Email</h4>
+          <a href="mailto:artedur@yahoo.com.ar">artedur@yahoo.com.ar</a>
+        </div>
+        <div class="cib">
+          <h4>Teléfonos</h4>
+          <a href="tel:+541147039671">4703-9671</a>
+          <a href="tel:+5491162552131">15-6255-2131</a>
+          <a href="tel:+5491122525222">15-2252-5222</a>
+        </div>
+        <div class="cib">
+          <h4>Horarios de atención</h4>
+          <p>Lunes a Viernes: 8:00 a 17:00 hs.<br>Sábados: 8:00 a 13:00 hs.</p>
+        </div>
+        <div class="mapb" role="region" aria-label="Mapa de ubicación ARTEDUR en Av. Castañares 2123 CABA">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.5!2d-58.4653!3d-34.6432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9e7b0a8eab%3A0x3d5b1d0e7a5d6a2e!2sAv.+Casta%C3%B1ares+2123%2C+CABA!5e0!3m2!1ses!2sar!4v1" title="Ubicación ARTEDUR Av. Castañares 2123 CABA" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <div class="flo">ARTE<em>DUR</em><small>DURLOCK</small></div>
+        <p class="ftag">Especialistas en construcción en seco, Durlock, cielorrasos, pintura y reformas en Buenos Aires desde hace más de 25 años.</p>
+      </div>
+      <div class="fc">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#construccion-seco">Construcción en seco</a></li>
+          <li><a href="#construccion-seco">Tabiques Durlock</a></li>
+          <li><a href="#construccion-seco">Cielorraso desmontable</a></li>
+          <li><a href="#construccion-seco">Cielorraso PVC</a></li>
+          <li><a href="#pisos">Pisos</a></li>
+          <li><a href="#pintura">Pintura interior y exterior</a></li>
+          <li><a href="#materiales">Venta de materiales</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:artedur@yahoo.com.ar">artedur@yahoo.com.ar</a></li>
+          <li><a href="tel:+541147039671">4703-9671</a></li>
+          <li><a href="tel:+5491162552131">15-6255-2131</a></li>
+          <li><a href="tel:+5491122525222">15-2252-5222</a></li>
+          <li><span>Av. Castañares 2123 &ndash; CABA</span></li>
+          <li><span>Lun&ndash;Vie 8&ndash;17 hs &middot; Sáb 8&ndash;13 hs</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>&copy; 2026 ARTEDUR &middot; Todos los derechos reservados</p>
+      <p>Construcción en seco &middot; Durlock &middot; Reformas &middot; Buenos Aires</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/5491162552131?text=Hola%20ARTEDUR%2C%20quisiera%20solicitar%20un%20presupuesto%20para%20mi%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Contactar a ARTEDUR por WhatsApp">
+  <div class="war"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Sticky header
+  var hd = document.getElementById('hd');
+  window.addEventListener('scroll', function(){ hd.classList.toggle('stk', window.scrollY > 50); }, { passive: true });
+
+  // Mobile menu
+  var brg = document.getElementById('brg');
+  var mn = document.getElementById('mn');
+  brg.addEventListener('click', function(){
+    var open = mn.classList.toggle('op');
+    brg.classList.toggle('op', open);
+    brg.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mnl').forEach(function(a){
+    a.addEventListener('click', function(){
+      mn.classList.remove('op');
+      brg.classList.remove('op');
+      brg.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Fade up on scroll
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(function(el){ obs.observe(el); });
+
+  // Active nav
+  var secs = document.querySelectorAll('section[id]');
+  var navAs = document.querySelectorAll('.nl a');
+  window.addEventListener('scroll', function(){
+    var cur = '';
+    secs.forEach(function(s){ if(window.scrollY >= s.offsetTop - 90) cur = s.id; });
+    navAs.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+  }, { passive: true });
+
+  // Contact form
+  var cform = document.getElementById('cform');
+  cform.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = cform.nombre.value.trim();
+    var t = cform.telefono.value.trim();
+    var m = cform.mensaje.value.trim();
+    if(!n || !t || !m) return;
+    document.getElementById('fok').style.display = 'block';
+    cform.reset();
+    var txt = encodeURIComponent('Hola ARTEDUR, soy ' + n + ' (' + t + '). ' + m);
+    setTimeout(function(){ window.open('https://wa.me/5491162552131?text=' + txt, '_blank'); }, 700);
+  });
+</script>
+</body>
+</html>
