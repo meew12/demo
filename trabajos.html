@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARTEDUR – Galería de trabajos realizados en construcción en seco, Durlock, cielorrasos, pintura y reformas en Buenos Aires." />
+  <meta name="robots" content="index, follow" />
+  <title>Trabajos Realizados | ARTEDUR – Construcción en Seco Buenos Aires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== BRAND TOKENS ===== */
+    :root {
+      --Y: #F5D000;
+      --YD: #D4B200;
+      --B: #0A0A0A;
+      --G1: #141414;
+      --G2: #1E1E1E;
+      --G3: #2B2B2B;
+      --G4: #3D3D3D;
+      --TX: #EDEDED;
+      --MT: #888888;
+      --WH: #FFFFFF;
+      --FH: 'Bebas Neue', sans-serif;
+      --FB: 'DM Sans', sans-serif;
+      --NH: 68px;
+      --EZ: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--FB); font-size: 16px; line-height: 1.7; background: var(--B); color: var(--TX); overflow-x: hidden; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    /* ===== LAYOUT ===== */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    /* ===== TYPE ===== */
+    .lbl { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--Y); margin-bottom: 14px; }
+    .ttl { font-family: var(--FH); line-height: 0.95; letter-spacing: 1px; color: var(--WH); }
+    .bar { width: 44px; height: 3px; background: var(--Y); margin: 20px 0 28px; }
+    .bar.cx { margin-left: auto; margin-right: auto; }
+    .muted { font-size: 15px; font-weight: 400; color: var(--MT); line-height: 1.8; }
+    /* ===== BTNS ===== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; font-family: var(--FB); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border: none; transition: var(--EZ); text-decoration: none; }
+    .btn-y { background: var(--Y); color: var(--B); }
+    .btn-y:hover { background: var(--YD); transform: translateY(-2px); }
+    .btn-o { background: transparent; color: var(--Y); border: 1.5px solid var(--Y); }
+    .btn-o:hover { background: var(--Y); color: var(--B); }
+
+    /* ===========================
+       HEADER (idéntico al main)
+    =========================== */
+    #hd { position: fixed; top: 0; left: 0; right: 0; height: var(--NH); z-index: 900; display: flex; align-items: center; background: transparent; border-bottom: 1px solid transparent; transition: background 0.35s, border-color 0.35s; }
+    #hd.stk { background: rgba(8,8,8,0.96); border-bottom-color: rgba(245,208,0,0.12); backdrop-filter: blur(10px); }
+    .nv { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .logo { font-family: var(--FH); font-size: 29px; letter-spacing: 5px; color: var(--WH); line-height: 1; }
+    .logo em { color: var(--Y); font-style: normal; }
+    .logo small { display: block; font-family: var(--FB); font-size: 9px; letter-spacing: 4px; font-weight: 400; color: var(--Y); margin-top: 2px; }
+    .nl { display: flex; gap: 30px; }
+    .nl a { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--MT); transition: color var(--EZ); position: relative; }
+    .nl a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--Y); transition: width var(--EZ); }
+    .nl a:hover { color: var(--Y); }
+    .nl a:hover::after { width: 100%; }
+    .nl a.on { color: var(--Y); }
+    .nl a.on::after { width: 100%; }
+    .brg { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .brg span { display: block; width: 22px; height: 2px; background: var(--WH); transition: var(--EZ); }
+    .brg.op span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .brg.op span:nth-child(2) { opacity: 0; }
+    .brg.op span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mn { position: fixed; inset: 0; background: rgba(8,8,8,0.98); z-index: 800; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .mn.op { opacity: 1; pointer-events: all; }
+    .mn a { font-family: var(--FH); font-size: 44px; letter-spacing: 3px; color: var(--WH); transition: color var(--EZ); }
+    .mn a:hover { color: var(--Y); }
+
+    /* ===========================
+       PAGE HERO
+    =========================== */
+    .page-hero {
+      padding-top: var(--NH);
+      background: var(--G1);
+      border-bottom: 1px solid rgba(245,208,0,0.08);
+    }
+    .ph-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    /* Left: about text */
+    .ph-text {
+      padding: 72px 56px 72px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .ph-text h1 {
+      font-family: var(--FH);
+      font-size: clamp(48px, 5vw, 80px);
+      line-height: 0.93;
+      color: var(--WH);
+      margin-bottom: 28px;
+    }
+    .ph-text h1 em { color: var(--Y); font-style: normal; }
+    .ph-text p {
+      font-size: 15px;
+      color: var(--MT);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .ph-text p:last-of-type { margin-bottom: 0; }
+    /* Right: two images side by side */
+    .ph-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      overflow: hidden;
+    }
+    .ph-img {
+      overflow: hidden;
+      position: relative;
+    }
+    .ph-img img { height: 100%; transition: transform 0.6s ease; }
+    .ph-img:hover img { transform: scale(1.05); }
+    .ph-img-cap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(to top, rgba(8,8,8,0.82), transparent);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--Y);
+    }
+    /* trust strip */
+    .trust-strip {
+      border-top: 1px solid rgba(245,208,0,0.08);
+      background: var(--B);
+      padding: 22px 0;
+    }
+    .ts-inner { display: flex; gap: 0; flex-wrap: wrap; }
+    .ts-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 40px;
+      border-right: 1px solid rgba(245,208,0,0.1);
+      flex: 1;
+      min-width: 160px;
+    }
+    .ts-num { font-family: var(--FH); font-size: 36px; color: var(--Y); line-height: 1; }
+    .ts-lbl { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--MT); line-height: 1.4; }
+
+    /* ===========================
+       GALLERY SECTION
+    =========================== */
+    .gallery-sec { padding: 80px 0 100px; }
+    /* filter tabs */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-bar span {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--MT);
+      margin-right: 12px;
+    }
+    .ftab {
+      padding: 9px 22px;
+      font-family: var(--FB);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid rgba(245,208,0,0.2);
+      background: transparent;
+      color: var(--MT);
+      transition: var(--EZ);
+    }
+    .ftab:hover { color: var(--Y); border-color: rgba(245,208,0,0.5); }
+    .ftab.active { background: var(--Y); color: var(--B); border-color: var(--Y); }
+    /* count badge */
+    .count-badge {
+      margin-left: auto;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--MT);
+    }
+    .count-badge b { color: var(--Y); }
+
+    /* ===== GRID ===== */
+    .gal-grid {
+      columns: 4;
+      column-gap: 4px;
+    }
+    .gal-item {
+      break-inside: avoid;
+      margin-bottom: 4px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      background: var(--G2);
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    .gal-item.hidden { display: none; }
+    .gal-item img,
+    .gal-item video {
+      display: block;
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+    .gal-item:hover img,
+    .gal-item:hover video { transform: scale(1.05); }
+    /* overlay */
+    .gi-ov {
+      position: absolute;
+      inset: 0;
+      background: rgba(8,8,8,0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity var(--EZ);
+    }
+    .gal-item:hover .gi-ov { opacity: 1; }
+    .gi-ico {
+      width: 48px; height: 48px;
+      border: 2px solid var(--Y);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gi-ico svg { width: 20px; height: 20px; fill: var(--Y); }
+    .gi-type {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--Y);
+    }
+    /* video badge */
+    .vid-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: var(--Y);
+      color: var(--B);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    /* thumb for video items */
+    .gal-item .vthumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    /* play triangle for video cards with no thumb */
+    .vid-play-cover {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--G3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vid-play-cover svg { width: 40px; height: 40px; fill: var(--Y); opacity: 0.7; }
+
+    /* ===== LIGHTBOX ===== */
+    .lb {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4,4,4,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .lb.open { opacity: 1; pointer-events: all; }
+    .lb-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lb-inner img,
+    .lb-inner video {
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .lb-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      width: 44px; height: 44px;
+      background: rgba(245,208,0,0.12);
+      border: 1px solid rgba(245,208,0,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--Y);
+      font-size: 22px;
+      line-height: 1;
+      transition: background var(--EZ);
+      z-index: 10000;
+    }
+    .lb-close:hover { background: rgba(245,208,0,0.25); }
+    .lb-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: rgba(245,208,0,0.1);
+      border: 1px solid rgba(245,208,0,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--Y);
+      font-size: 20px;
+      transition: background var(--EZ);
+      z-index: 10000;
+    }
+    .lb-nav:hover { background: rgba(245,208,0,0.25); }
+    .lb-prev { left: 16px; }
+    .lb-next { right: 16px; }
+    .lb-counter {
+      position: fixed;
+      bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--MT);
+      z-index: 10000;
+    }
+    .lb-counter b { color: var(--Y); }
+
+    /* ===========================
+       FOOTER (idéntico al main)
+    =========================== */
+    footer { background: var(--B); border-top: 1px solid rgba(245,208,0,0.08); padding: 56px 0 28px; }
+    .fg { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .flo { font-family: var(--FH); font-size: 32px; letter-spacing: 5px; color: var(--WH); margin-bottom: 12px; line-height: 1; }
+    .flo em { color: var(--Y); font-style: normal; }
+    .flo small { display: block; font-family: var(--FB); font-size: 9px; letter-spacing: 4px; color: var(--Y); margin-top: 3px; }
+    .ftag { font-size: 14px; color: var(--MT); line-height: 1.7; max-width: 260px; }
+    .fc h5 { font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--Y); margin-bottom: 18px; }
+    .fc ul { display: flex; flex-direction: column; gap: 9px; }
+    .fc a { font-size: 14px; color: var(--MT); transition: color var(--EZ); display: block; }
+    .fc a:hover { color: var(--Y); }
+    .fc span { font-size: 14px; color: var(--MT); }
+    .fbot { border-top: 1px solid rgba(245,208,0,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .fbot p { font-size: 12px; color: var(--MT); }
+
+    /* ===========================
+       WHATSAPP
+    =========================== */
+    .wa { position: fixed; bottom: 28px; right: 28px; z-index: 890; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.35); transition: transform var(--EZ), box-shadow var(--EZ); }
+    .wa:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+    .wa svg { width: 28px; height: 28px; fill: #fff; }
+    .war { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(37,211,102,0.45); animation: rng 2.2s ease-out infinite; }
+    @keyframes rng { 0%{ transform:scale(1); opacity:0.9; } 100%{ transform:scale(1.5); opacity:0; } }
+
+    /* ===========================
+       FADE UP
+    =========================== */
+    .fu { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fu.in { opacity: 1; transform: translateY(0); }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .gal-grid { columns: 3; }
+      .fg { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --NH: 60px; }
+      .nl, .nav-cta { display: none; }
+      .brg { display: flex; }
+      .ph-inner { grid-template-columns: 1fr; }
+      .ph-text { padding: 52px 0 36px; }
+      .ph-imgs { height: 280px; }
+      .ts-item { padding: 0 24px; }
+      .gal-grid { columns: 2; }
+      .fg { grid-template-columns: 1fr; }
+      .fbot { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .gal-grid { columns: 1; }
+      .count-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="hd" role="banner">
+  <div class="wrap nv">
+    <a href="index.html" class="logo" aria-label="ARTEDUR Inicio">ARTE<em>DUR</em><small>DURLOCK</small></a>
+    <nav class="nl" role="navigation" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#construccion-seco">Construcción en Seco</a>
+      <a href="index.html#pisos">Pisos</a>
+      <a href="index.html#pintura">Pintura</a>
+      <a href="index.html#materiales">Materiales</a>
+      <a href="trabajos.html" class="on">Trabajos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="index.html#contacto" class="btn btn-y" style="padding:10px 20px;font-size:11px;">Presupuesto</a>
+    </div>
+    <button class="brg" id="brg" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mn" id="mn" aria-label="Menú móvil">
+  <a href="index.html" class="mnl">Inicio</a>
+  <a href="index.html#construccion-seco" class="mnl">Construcción en Seco</a>
+  <a href="index.html#pisos" class="mnl">Pisos</a>
+  <a href="index.html#pintura" class="mnl">Pintura</a>
+  <a href="index.html#materiales" class="mnl">Materiales</a>
+  <a href="trabajos.html" class="mnl">Trabajos</a>
+  <a href="index.html#contacto" class="mnl">Contacto</a>
+</nav>
+
+<!-- ═══ PAGE HERO / QUIÉNES SOMOS ═══ -->
+<section class="page-hero" aria-labelledby="ph-title">
+  <div class="wrap">
+    <div class="ph-inner">
+
+      <!-- Texto sobre ARTEDUR -->
+      <div class="ph-text fu">
+        <div class="lbl">Quiénes somos</div>
+        <h1 id="ph-title">Más de 25 años<br>construyendo<br><em>con vos.</em></h1>
+        <div class="bar"></div>
+        <!--
+          ╔══════════════════════════════════════════════╗
+          ║  EDITAR: Reemplazá este texto con la         ║
+          ║  descripción real de ARTEDUR                 ║
+          ╚══════════════════════════════════════════════╝
+        -->
+        <p>
+          <strong style="color:var(--WH)">ARTEDUR</strong> nació hace más de 25 años con una misión clara: brindar soluciones de construcción en seco de la más alta calidad para hogares y empresas de Buenos Aires. Desde nuestra sede en Av. Castañares, hemos transformado cientos de espacios en CABA y Gran Buenos Aires.
+        </p>
+        <p>
+          Somos distribuidores e instaladores certificados de <strong style="color:var(--WH)">Durlock</strong> y <strong style="color:var(--WH)">Knauf</strong>. Nuestro equipo de profesionales trabaja con precisión y compromiso en cada obra, ya sea una reforma pequeña o un proyecto de gran escala. Tabiques, cielorrasos, revestimientos, pintura y venta de materiales: todo bajo un mismo techo.
+        </p>
+        <p>
+          En esta galería encontrás una muestra real de nuestro trabajo. Cada imagen y cada video refleja el estándar que nos exigimos en cada proyecto.
+        </p>
+      </div>
+
+      <!-- Dos imágenes del local / equipo -->
+      <div class="ph-imgs">
+        <!--
+          ╔══════════════════════════════════════════════╗
+          ║  EDITAR: Reemplazá src con tus fotos         ║
+          ║  del local o del equipo de trabajo           ║
+          ╚══════════════════════════════════════════════╝
+        -->
+        <div class="ph-img">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+            alt="Local de ARTEDUR en Av. Castañares 2123 CABA – materiales Durlock y construcción en seco"
+          />
+          <div class="ph-img-cap">Nuestro local &middot; Av. Castañares 2123</div>
+        </div>
+        <div class="ph-img">
+          <img
+            src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&auto=format&fit=crop&q=80"
+            alt="Equipo de trabajo de ARTEDUR en obra de construcción en seco"
+          />
+          <div class="ph-img-cap">Nuestro equipo en obra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <div class="ts-inner">
+        <div class="ts-item">
+          <div class="ts-num">+25</div>
+          <div class="ts-lbl">Años de<br>experiencia</div>
+        </div>
+        <div class="ts-item">
+          <div class="ts-num">+500</div>
+          <div class="ts-lbl">Obras<br>realizadas</div>
+        </div>
+        <div class="ts-item">
+          <div class="ts-num">100%</div>
+          <div class="ts-lbl">Garantía de<br>calidad</div>
+        </div>
+        <div class="ts-item" style="border-right:none">
+          <div class="ts-num">CABA</div>
+          <div class="ts-lbl">y Gran<br>Buenos Aires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery-sec" aria-labelledby="gal-title">
+  <div class="wrap">
+
+    <div class="fu" style="margin-bottom:48px">
+      <div class="lbl">Portfolio completo</div>
+      <h2 class="ttl" id="gal-title" style="font-size:clamp(42px,5vw,68px)">Trabajos<br>Realizados</h2>
+      <div class="bar"></div>
+      <p class="muted" style="max-width:520px">Filtrá por tipo de contenido. Hacé clic en cualquier imagen o video para verlo en pantalla completa.</p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar fu" role="group" aria-label="Filtros de galería">
+      <span>Filtrar:</span>
+      <button class="ftab active" data-filter="all">Todos</button>
+      <button class="ftab" data-filter="image">Fotos</button>
+      <button class="ftab" data-filter="video">Videos</button>
+      <div class="count-badge">Mostrando <b id="count-visible">0</b> de <b id="count-total">0</b></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         GRILLA DE CONTENIDO
+         ─────────────────────────────────────────────────────
+         CÓMO AGREGAR TUS IMÁGENES:
+         Copiá y pegá bloques como este dentro de #gal-grid:
+
+         <div class="gal-item" data-type="image" data-src="ruta/a/tu/imagen.jpg">
+           <img src="ruta/a/tu/imagen.jpg" alt="Descripción del trabajo" loading="lazy" />
+           <div class="gi-ov">
+             <div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div>
+             <span class="gi-type">Ver imagen</span>
+           </div>
+         </div>
+
+         CÓMO AGREGAR TUS VIDEOS:
+         Opción A – video local (.mp4):
+         <div class="gal-item" data-type="video" data-src="ruta/a/tu/video.mp4" data-thumb="ruta/thumb.jpg">
+           <img class="vthumb" src="ruta/thumb.jpg" alt="Descripción del video" loading="lazy" />
+           <div class="vid-badge">Video</div>
+           <div class="gi-ov">
+             <div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+             <span class="gi-type">Reproducir</span>
+           </div>
+         </div>
+
+         Opción B – video sin thumbnail (muestra fondo gris con play):
+         <div class="gal-item" data-type="video" data-src="ruta/a/tu/video.mp4">
+           <div class="vid-play-cover"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+           <div class="vid-badge">Video</div>
+           <div class="gi-ov">
+             <div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+             <span class="gi-type">Reproducir</span>
+           </div>
+         </div>
+    ═══════════════════════════════════════════════════════ -->
+
+    <div class="gal-grid" id="gal-grid">
+
+      <!-- ══ IMÁGENES DE EJEMPLO (reemplazá con tus fotos reales) ══ -->
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&auto=format&fit=crop&q=80" alt="Reforma interior con tabiques Durlock – CABA" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=80" alt="Cielorraso desmontable en local comercial" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&auto=format&fit=crop&q=80" alt="Pintura de frente de edificio con andamio" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <!-- ══ VIDEOS DE EJEMPLO (reemplazá con tus videos reales) ══ -->
+
+      <div class="gal-item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-thumb="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80">
+        <img class="vthumb" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Video – Instalación tabique Durlock" loading="lazy" />
+        <div class="vid-badge">Video</div>
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="gi-type">Reproducir</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&auto=format&fit=crop&q=80" alt="Reforma de cocina con revestimiento porcelanato" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80" alt="Living renovado con tabique Durlock y piso flotante" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4" data-thumb="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&auto=format&fit=crop&q=80">
+        <img class="vthumb" src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&auto=format&fit=crop&q=80" alt="Video – Colocación cielorraso PVC" loading="lazy" />
+        <div class="vid-badge">Video</div>
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="gi-type">Reproducir</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80" alt="Baño reformado con cielorraso PVC y cerámico" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&auto=format&fit=crop&q=80" alt="Dormitorio pintado con enduido y látex" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&auto=format&fit=crop&q=80" alt="Sala con cielorraso de yeso y molduras" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <div class="gal-item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-thumb="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&auto=format&fit=crop&q=80">
+        <img class="vthumb" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&auto=format&fit=crop&q=80" alt="Video – Pintura interior terminación" loading="lazy" />
+        <div class="vid-badge">Video</div>
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="gi-type">Reproducir</span></div>
+      </div>
+
+      <div class="gal-item" data-type="image" data-src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&auto=format&fit=crop&q=80">
+        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&auto=format&fit=crop&q=80" alt="Oficina con construcción en seco y cielorraso desmontable" loading="lazy" />
+        <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
+      </div>
+
+      <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║   AGREGÁ AQUÍ TUS 50 IMÁGENES Y 50 VIDEOS                  ║
+        ║   Copiá el bloque correcto de arriba y pegalo acá abajo     ║
+        ╚══════════════════════════════════════════════════════════════╝
+      -->
+
+    </div><!-- /#gal-grid -->
+
+    <div style="text-align:center;margin-top:56px" class="fu">
+      <p style="font-size:14px;color:var(--MT);margin-bottom:18px">¿Querés un resultado así para tu hogar o negocio?</p>
+      <a href="index.html#contacto" class="btn btn-y">Solicitar presupuesto gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor de imagen o video">
+  <button class="lb-close" id="lb-close" aria-label="Cerrar">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">&#8592;</button>
+  <div class="lb-inner" id="lb-inner"></div>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">&#8594;</button>
+  <div class="lb-counter"><b id="lb-cur">1</b> / <b id="lb-tot">1</b></div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <div class="flo">ARTE<em>DUR</em><small>DURLOCK</small></div>
+        <p class="ftag">Especialistas en construcción en seco, Durlock, cielorrasos, pintura y reformas en Buenos Aires desde hace más de 25 años.</p>
+      </div>
+      <div class="fc">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="index.html#construccion-seco">Construcción en seco</a></li>
+          <li><a href="index.html#construccion-seco">Tabiques Durlock</a></li>
+          <li><a href="index.html#construccion-seco">Cielorraso desmontable</a></li>
+          <li><a href="index.html#construccion-seco">Cielorraso PVC</a></li>
+          <li><a href="index.html#pisos">Pisos</a></li>
+          <li><a href="index.html#pintura">Pintura interior y exterior</a></li>
+          <li><a href="index.html#materiales">Venta de materiales</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:artedur@yahoo.com.ar">artedur@yahoo.com.ar</a></li>
+          <li><a href="tel:+541147039671">4703-9671</a></li>
+          <li><a href="tel:+5491162552131">15-6255-2131</a></li>
+          <li><a href="tel:+5491122525222">15-2252-5222</a></li>
+          <li><span>Av. Casta&ntilde;ares 2123 &ndash; CABA</span></li>
+          <li><span>Lun&ndash;Vie 8&ndash;17 hs &middot; S&aacute;b 8&ndash;13 hs</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>&copy; 2025 ARTEDUR &middot; Todos los derechos reservados</p>
+      <p>Construcci&oacute;n en seco &middot; Durlock &middot; Reformas &middot; Buenos Aires</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/5491162552131?text=Hola%20ARTEDUR%2C%20quisiera%20solicitar%20un%20presupuesto%20para%20mi%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Contactar a ARTEDUR por WhatsApp">
+  <div class="war"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function() {
+  // --- STICKY HEADER ---
+  var hd = document.getElementById('hd');
+  window.addEventListener('scroll', function(){ hd.classList.toggle('stk', window.scrollY > 50); }, { passive: true });
+
+  // --- MOBILE MENU ---
+  var brg = document.getElementById('brg');
+  var mn = document.getElementById('mn');
+  brg.addEventListener('click', function(){
+    var open = mn.classList.toggle('op');
+    brg.classList.toggle('op', open);
+    brg.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mnl').forEach(function(a){
+    a.addEventListener('click', function(){
+      mn.classList.remove('op'); brg.classList.remove('op');
+      brg.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // --- FADE UP ---
+  var obs = new IntersectionObserver(function(e){
+    e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); obs.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(function(el){ obs.observe(el); });
+
+  // --- FILTER ---
+  var items = Array.from(document.querySelectorAll('.gal-item'));
+  var tabs = document.querySelectorAll('.ftab');
+  var countVis = document.getElementById('count-visible');
+  var countTot = document.getElementById('count-total');
+  var currentFilter = 'all';
+
+  function updateCount() {
+    var vis = items.filter(function(i){ return !i.classList.contains('hidden'); }).length;
+    countVis.textContent = vis;
+    countTot.textContent = items.length;
+  }
+
+  function applyFilter(f) {
+    currentFilter = f;
+    items.forEach(function(item){
+      if (f === 'all' || item.dataset.type === f) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+    updateCount();
+    // rebuild lightbox index based on filter
+    buildIndex();
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      applyFilter(tab.dataset.filter);
+    });
+  });
+
+  // --- LIGHTBOX ---
+  var lb = document.getElementById('lb');
+  var lbInner = document.getElementById('lb-inner');
+  var lbCur = document.getElementById('lb-cur');
+  var lbTot = document.getElementById('lb-tot');
+  var lbClose = document.getElementById('lb-close');
+  var lbPrev = document.getElementById('lb-prev');
+  var lbNext = document.getElementById('lb-next');
+  var lbIndex = [];
+  var lbPos = 0;
+
+  function buildIndex() {
+    lbIndex = items.filter(function(i){ return !i.classList.contains('hidden'); });
+    lbTot.textContent = lbIndex.length;
+  }
+
+  function openLb(pos) {
+    lbPos = pos;
+    var item = lbIndex[lbPos];
+    if (!item) return;
+    lbInner.innerHTML = '';
+    if (item.dataset.type === 'image') {
+      var img = document.createElement('img');
+      img.src = item.dataset.src || item.querySelector('img').src;
+      img.alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+      lbInner.appendChild(img);
+    } else {
+      var vid = document.createElement('video');
+      vid.src = item.dataset.src;
+      vid.controls = true;
+      vid.autoplay = true;
+      vid.style.maxWidth = '90vw';
+      vid.style.maxHeight = '85vh';
+      lbInner.appendChild(vid);
+    }
+    lbCur.textContent = lbPos + 1;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    var vid = lbInner.querySelector('video');
+    if (vid) vid.pause();
+    lbInner.innerHTML = '';
+  }
+
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  lbPrev.addEventListener('click', function(e){ e.stopPropagation(); openLb((lbPos - 1 + lbIndex.length) % lbIndex.length); });
+  lbNext.addEventListener('click', function(e){ e.stopPropagation(); openLb((lbPos + 1) % lbIndex.length); });
+  document.addEventListener('keydown', function(e){
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') openLb((lbPos - 1 + lbIndex.length) % lbIndex.length);
+    if (e.key === 'ArrowRight') openLb((lbPos + 1) % lbIndex.length);
+  });
+
+  // attach click to each item
+  items.forEach(function(item, i){
+    item.addEventListener('click', function(){
+      buildIndex();
+      var pos = lbIndex.indexOf(item);
+      if (pos === -1) return;
+      openLb(pos);
+    });
+  });
+
+  // init
+  buildIndex();
+  updateCount();
+
+})();
+</script>
+</body>
+</html>
