@@ -970,6 +970,8 @@
         <div class="gi-ov"><div class="gi-ico"><svg viewBox="0 0 24 24"><path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/></svg></div><span class="gi-type">Ver imagen</span></div>
       </div>
 
+      <div id="galeria"></div>
+
       <!--
         ╔══════════════════════════════════════════════════════════════╗
         ║   AGREGÁ AQUÍ TUS 50 IMÁGENES Y 50 VIDEOS                  ║
@@ -1178,6 +1180,25 @@
   updateCount();
 
 })();
+</script>
+  <script>
+const cont = document.getElementById("galeria");
+
+// imágenes
+for (let i = 1; i <= 80; i++) {
+  cont.innerHTML += `
+  <div class="gal-item" data-type="image" data-src="assets/${i}.jpeg">
+    <img src="assets/${i}.jpeg" alt="ARTEDUR" loading="lazy" />
+    <div class="gi-ov">
+      <div class="gi-ico">
+        <svg viewBox="0 0 24 24">
+          <path d="M15 3h6v6h-2V5h-4V3zm0 18v-2h4v-4h2v6h-6zM3 15h2v4h4v2H3v-6zm0-12h6v2H5v4H3V3z"/>
+        </svg>
+      </div>
+      <span class="gi-type">Ver imagen</span>
+    </div>
+  </div>`;
+}
 </script>
 </body>
 </html>
